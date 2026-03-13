@@ -69,3 +69,20 @@ Esto genera problemas como:
 
 - Generación de reportes de producción
 - Visualización de información para toma de decisiones
+  
+---
+
+👨‍💻 Equipo de Desarrollo
+
+Proyecto desarrollado por aprendices del programa Análisis y Desarrollo de Software (ADSO) del SENA.
+
+Comprometidos con el desarrollo de soluciones tecnológicas que optimicen procesos empresariales.
+
+---
+📜 Licencia
+
+Este proyecto es desarrollado con fines educativos dentro del proceso de formación del SENA.
+
+<p align="center"> 💻 Desarrollado por aprendices ADSO - SENA </p>
+
+
