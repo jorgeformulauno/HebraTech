@@ -69,7 +69,3 @@ Esto genera problemas como:
 
 - Generación de reportes de producción
 - Visualización de información para toma de decisiones
-
----
-
-# 🗂️ Estructura del Proyecto
