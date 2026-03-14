@@ -12,6 +12,14 @@
 </p>
 
 ---
+<h1>Integrantes Del Grupo</h1>
+<ul>
+  <li>Jorge Almanza</li>
+  <li>Juan Alba Castro</li>
+  <li>David Sierra</li>
+  <li>Santiago Cano</li>
+  <li>Yeferson Idarraga</li>
+</ul>
 
 # 📌 Descripción del Proyecto
 
