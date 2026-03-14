@@ -4,7 +4,6 @@
 <img src="https://img.shields.io/badge/Proyecto-HebraTech-blue?style=for-the-badge">
 <img src="https://img.shields.io/badge/Estado-En%20Desarrollo-green?style=for-the-badge">
 <img src="https://img.shields.io/badge/SENA-ADSO-orange?style=for-the-badge">
-<img src="https://img.shields.io/badge/Base%20de%20Datos-MySQL-blue?style=for-the-badge">
 </p>
 
 <p align="center">
