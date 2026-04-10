@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - Hebratech</title>
+    
+    <link href="('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap')" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Graduate', serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Cambiado a min-height por si el formulario es largo */
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px; /* Un poco más ancho para los campos nuevos */
+        }
+
+        h2 {
+            text-align: center;
+            color: #01638a;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .row div {
+            flex: 1;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #01638a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #3498db;
+        }
+
+        .volver-link {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #01638a;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="procesar_usuario.php" method="POST">
+        <h2>GESTIÓN DE USUARIOS</h2>
+        
+        <div class="row">
+            <div>
+                <label>ID Usuario:</label>
+                <input type="number" name="idUsuario" required />
+            </div>
+            <div>
+                <label>Fecha Ingreso:</label>
+                <input type="date" name="fechaIngreso" required />
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required />
+            </div>
+            <div>
+                <label>Apellido:</label>
+                <input type="text" name="apellido" required />
+            </div>
+        </div>
+
+        <p>
+            <label>Correo Electrónico:</label>
+            <input type="email" name="correoElectronico" required />
+        </p>
+
+        <p>
+            <label>Contraseña:</label>
+            <input type="password" name="contrasena" required />
+        </p>
+
+        <div class="row">
+            <div>
+                <label>Teléfono:</label>
+                <input type="text" name="telefono" placeholder="Ej: 3001234567" />
+            </div>
+            <div>
+                <label>Especialidad:</label>
+                <input type="text" name="especialidad" placeholder="Ej: Confección" />
+            </div>
+        </div>
+
+        <p>
+            <label>Dirección:</label>
+            <input type="text" name="direccion" placeholder="Calle, Carrera, Barrio..." />
+        </p>
+
+        <div class="row">
+            <div>
+                <label>Rol:</label>
+                <select name="rol" required>
+                    <option value="">Selecciona...</option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Operario">Operario</option>
+                    <option value="Usuario">Usuario</option>
+                </select>
+            </div>
+            <div>
+                <label>Estado:</label>
+                <select name="estado" required>
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit">Registrar Usuario</button>
+    </form>
+
+    <a href="../index.html" class="volver-link">Volver al menú</a>
+
+</body>
+</html>
