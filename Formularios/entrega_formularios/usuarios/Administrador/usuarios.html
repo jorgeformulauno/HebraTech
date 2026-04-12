@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Producción — Hebratech</title>
+<title>Usuarios — Hebratech</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -88,10 +88,7 @@ nav {
     to   { opacity:1; transform:translateY(0); }
 }
 
-/* ── CABECERA ── */
-.page-header {
-    margin-bottom: 36px;
-}
+.page-header { margin-bottom: 36px; }
 
 .page-eyebrow {
     font-size: 11px;
@@ -111,7 +108,7 @@ nav {
 
 .page-title span { color: var(--accent); }
 
-/* ── FIELDSET / TARJETA ── */
+/* ── FORM CARD ── */
 .form-card {
     background: rgba(57,91,100,.35);
     border: 1px solid rgba(165,201,202,.2);
@@ -132,7 +129,7 @@ nav {
     border-radius: var(--radius) var(--radius) 0 0;
 }
 
-/* ── SECCIONES ── */
+/* ── SECCIÓN ── */
 .form-section-title {
     font-family: 'Graduate', serif;
     font-size: 11px;
@@ -152,7 +149,7 @@ nav {
     background: rgba(165,201,202,.2);
 }
 
-/* ── GRID CAMPOS ── */
+/* ── GRID ── */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -162,7 +159,7 @@ nav {
 
 .full { grid-column: span 2; }
 
-/* ── GRUPOS ── */
+/* ── CAMPOS ── */
 .field-group { display: flex; flex-direction: column; gap: 8px; }
 
 label {
@@ -184,8 +181,8 @@ input, select, textarea {
     font-size: 15px;
     outline: none;
     transition: border-color .25s, background .25s, box-shadow .25s;
-    appearance: none;
     -webkit-appearance: none;
+    appearance: none;
 }
 
 input::placeholder, textarea::placeholder {
@@ -201,9 +198,8 @@ input:focus, select:focus, textarea:focus {
 
 select option { background: #2C3333; color: var(--light); }
 
-textarea { min-height: 110px; resize: vertical; }
+textarea { min-height: 90px; resize: vertical; }
 
-/* ── CAMPO READONLY (ID) ── */
 input[readonly] {
     background: rgba(44,51,51,.4);
     border-color: rgba(165,201,202,.12);
@@ -211,8 +207,13 @@ input[readonly] {
     cursor: not-allowed;
 }
 
-/* ── SEPARADOR ── */
-.divider { margin: 10px 0 28px; }
+/* ── BADGE ESTADO ── */
+.field-hint {
+    font-size: 11px;
+    color: var(--muted);
+    opacity: .7;
+    margin-top: 2px;
+}
 
 /* ── BOTÓN ── */
 .btn-submit {
@@ -254,7 +255,7 @@ input[readonly] {
 <!-- NAVBAR -->
 <nav>
     <div class="nav-logo">HEBRATECH</div>
-    <a href="../index.html" class="nav-back">Volver al menú</a>
+    <a href="../Admin.html" class="nav-back">Volver al menú</a>
 </nav>
 
 <!-- CONTENIDO -->
@@ -262,104 +263,147 @@ input[readonly] {
 
     <div class="page-header">
         <div class="page-eyebrow">Módulo de gestión</div>
-        <h1 class="page-title">REGISTRO DE <span>PRODUCCIÓN</span></h1>
+        <h1 class="page-title">REGISTRO DE <span>USUARIOS</span></h1>
     </div>
 
     <div class="form-card">
-    <form>
+    <form id="formUsuario">
 
         <!-- SECCIÓN 1: IDENTIFICACIÓN -->
         <div class="form-section-title">Identificación</div>
-        <div class="grid divider">
+        <div class="grid">
 
             <div class="field-group">
-                <label for="idProduccion">ID Producción</label>
-                <input type="number" id="idProduccion" name="idProduccion" placeholder="Autogenerado" readonly>
+                <label for="idUsuario">ID Usuario</label>
+                <input type="number" id="idUsuario" name="idUsuario" placeholder="Autogenerado" readonly>
             </div>
 
             <div class="field-group">
-                <label for="idOrden">ID Orden</label>
-                <input type="number" id="idOrden" name="idOrden" placeholder="Ej: 1042">
+                <label for="rol">Rol</label>
+                <select id="rol" name="rol">
+                    <option value="" disabled selected>Seleccionar rol</option>
+                    <option value="admin">Administrador</option>
+                    <option value="supervisor">Cliente</option>
+                    <option value="operario">Operario</option>
+                    <option value="empleado">Proveedor</option>
+                </select>
             </div>
 
             <div class="field-group">
-                <label for="idProducto">ID Producto</label>
-                <input type="number" id="idProducto" name="idProducto" placeholder="Ej: 205">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos">
+            </div>
+
+            <div class="field-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ej: Ramírez">
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN 2: CONTACTO -->
+        <div class="form-section-title">Contacto</div>
+        <div class="grid">
+
+            <div class="field-group">
+                <label for="correoElectronico">Correo Electrónico</label>
+                <input type="email" id="correoElectronico" name="correoElectronico" placeholder="usuario@hebratech.com">
+            </div>
+
+            <div class="field-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej: 3101234567">
+            </div>
+
+            <div class="field-group full">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Calle, carrera, barrio...">
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN 3: ACCESO -->
+        <div class="form-section-title">Acceso y perfil</div>
+        <div class="grid">
+
+            <div class="field-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" name="contrasena" placeholder="Mínimo 8 caracteres">
+            </div>
+
+            <div class="field-group">
+                <label for="especialidad">Especialidad</label>
+                <input type="text" id="especialidad" name="especialidad" placeholder="Ej: Corte, Confección...">
+            </div>
+
+            <div class="field-group">
+                <label for="fechaIngreso">Fecha de Ingreso</label>
+                <input type="date" id="fechaIngreso" name="fechaIngreso">
             </div>
 
             <div class="field-group">
                 <label for="estado">Estado</label>
                 <select id="estado" name="estado">
                     <option value="" disabled selected>Seleccionar estado</option>
-                    <option value="pendiente">Pendiente</option>
-                    <option value="en_proceso">En proceso</option>
-                    <option value="pausado">Pausado</option>
-                    <option value="finalizado">Finalizado</option>
-                    <option value="cancelado">Cancelado</option>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                    <option value="suspendido">Suspendido</option>
                 </select>
             </div>
 
         </div>
 
-        <!-- SECCIÓN 2: PLANIFICACIÓN -->
-        <div class="form-section-title">Planificación</div>
-        <div class="grid divider">
-
-            <div class="field-group">
-                <label for="cantidadRequerida">Cantidad Requerida</label>
-                <input type="number" id="cantidadRequerida" name="cantidadRequerida" placeholder="Unidades">
-            </div>
-
-            <div class="field-group">
-                <label for="fechaInicio">Fecha de Inicio</label>
-                <input type="date" id="fechaInicio" name="fechaInicio">
-            </div>
-
-            <div class="field-group">
-                <label for="fechaEstimadaFin">Fecha Estimada de Fin</label>
-                <input type="date" id="fechaEstimadaFin" name="fechaEstimadaFin">
-            </div>
-
-            <div class="field-group">
-                <label for="fechaRealFin">Fecha Real de Fin</label>
-                <input type="date" id="fechaRealFin" name="fechaRealFin">
-            </div>
-
-        </div>
-
-        <!-- SECCIÓN 3: COSTOS -->
-        <div class="form-section-title">Costos</div>
-        <div class="grid divider">
-
-            <div class="field-group">
-                <label for="costoEstimado">Costo Estimado (COP)</label>
-                <input type="number" step="0.01" id="costoEstimado" name="costoEstimado" placeholder="0.00">
-            </div>
-
-            <div class="field-group">
-                <label for="costoReal">Costo Real (COP)</label>
-                <input type="number" step="0.01" id="costoReal" name="costoReal" placeholder="0.00">
-            </div>
-
-        </div>
-
-        <!-- SECCIÓN 4: DESCRIPCIÓN -->
-        <div class="form-section-title">Descripción</div>
+        <!-- SECCIÓN 4: REGISTRO AUTOMÁTICO -->
+        <div class="form-section-title">Registro del sistema</div>
         <div class="grid">
-            <div class="field-group full">
-                <label for="descripcion">Descripción</label>
-                <textarea id="descripcion" name="descripcion" placeholder="Detalles del proceso de producción..."></textarea>
+
+            <div class="field-group">
+                <label for="fechaCreacion">Fecha de Creación</label>
+                <input type="datetime-local" id="fechaCreacion" name="fechaCreacion" readonly>
+                <span class="field-hint">Generado automáticamente</span>
             </div>
+
+            <div class="field-group">
+                <label for="ultimaConexion">Última Conexión</label>
+                <input type="datetime-local" id="ultimaConexion" name="ultimaConexion" readonly>
+                <span class="field-hint">Actualizado por el sistema</span>
+            </div>
+
         </div>
 
-       <a href="../tareas/tareas.html" target="_blank" class="btn-submit" style="text-decoration: none; display: inline-block;">
-        GUARDAR PRODUCCIÓN
-        </a>
+        <button type="submit" class="btn-submit">GUARDAR USUARIO</button>
 
     </form>
     </div>
 
 </div>
+
+<script>
+document.getElementById('formUsuario').addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita que la página se recargue
+
+    // 1. Capturamos los datos del formulario
+    const nuevoUsuario = {
+        id: Date.now().toString().slice(-6), // Un ID temporal autogenerado
+        nombre: document.getElementById('nombre').value + ' ' + document.getElementById('apellido').value,
+        rol: document.getElementById('rol').options[document.getElementById('rol').selectedIndex].text,
+        correo: document.getElementById('correoElectronico').value,
+        estado: document.getElementById('estado').value || 'Activo',
+        fecha: new Date().toLocaleDateString('es-CO') // Formato de fecha local
+    };
+
+    // 2. Traemos los usuarios que ya existan en la memoria (o creamos una lista vacía)
+    let usuariosGuardados = JSON.parse(localStorage.getItem('hebratech_usuarios')) || [];
+    
+    // 3. Agregamos el nuevo usuario y guardamos de nuevo
+    usuariosGuardados.push(nuevoUsuario);
+    localStorage.setItem('hebratech_usuarios', JSON.stringify(usuariosGuardados));
+
+    // 4. Limpiamos el formulario y abrimos la pestaña de la tabla
+    this.reset();
+    window.open('Usuariosregistrados.html', '_blank');
+});
+</script>
 
 </body>
 </html>
